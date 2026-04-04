@@ -5,7 +5,8 @@ class Movies extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            personajes: []
+            nowPlaying: [],
+            popular: []
         }
     }
 
@@ -16,7 +17,7 @@ class Movies extends Component {
             .then(response => response.json())
             .then(data => {
                 this.setState({
-                    personajes: data.results
+                    nowPlaying: data.results
                 })
             })
             .catch(error => console.log(error))
@@ -25,7 +26,7 @@ class Movies extends Component {
             .then(response => response.json())
             .then(data => {
                 this.setState({
-                    personajes: data.results
+                    popular: data.results
                 })
             })
             .catch(error => console.log(error))
@@ -40,25 +41,27 @@ class Movies extends Component {
                 <h2 className="alert alert-primary">Popular movies this week</h2>
                 <section className="row cards" id="movies">
                     {
-                        this.state.personajes.length > 0 ? (
-                            this.state.personajes.map((personaje) => (
+                        this.state.popular.length > 0 ? (
+                            this.state.popular.map((personaje) => (
                                 <CardMovie 
+                                   id = {personaje.id}
                                    nombre={personaje.title}
                                     foto={"https://image.tmdb.org/t/p/w342" + personaje.poster_path}
                                     desc={personaje.overview}
                                 />
                             ))
                         ) : (
-                            <p>Cargando... </p>
+                            <p>Cargando..</p>
                         )
                     } 
                 </section>
                 <h2 className="alert alert-primary">Movies now playing</h2>
                 <section className="row cards" id="now-playing">
                     {
-                        this.state.personajes.length > 0 ? (
-                            this.state.personajes.map((personaje) => (
+                        this.state.nowPlaying.length > 0 ? (
+                            this.state.nowPlaying.map((personaje) => (
                                 <CardNMP
+                                    id = {personaje.id}
                                     nombre={personaje.title}
                                     foto={"https://image.tmdb.org/t/p/w342" + personaje.poster_path}
                                     desc={personaje.overview}

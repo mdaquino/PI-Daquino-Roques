@@ -16,7 +16,7 @@ class CardMovie extends Component{
                 <div className="cardBody">
                     <h5 className="card-title">{this.props.nombre}</h5>
                     <p className="card-text">{this.props.desc}</p>
-                    <a href="movie.html" className="btn btn-primary">Ver más</a>
+                    <Link to={"/detalleP/" + this.props.id}><button href="movie.html" className="btn btn-primary">Ver más</button></Link>
                     <a href="" className="btn alert-primary">🩶</a>
                 </div>
             </article>

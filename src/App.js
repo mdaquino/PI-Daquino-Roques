@@ -6,6 +6,8 @@ import LogIn from './screens/LogIn/LogIn';
 import Peliculas from './screens/Peliculas/Peliculas'
 import Series from './screens/Series/Series'
 import Registro from './screens/Registro/Registro';
+import DetalleS from './screens/DetalleS/DetalleS';
+import DetalleP from './screens/DetalleP/DetalleP';
 function App() {
   return (
     <div className='Container'>
@@ -20,6 +22,9 @@ function App() {
         
         <Route path="/LogIn" component={LogIn}/>
         <Route path="/Registro" component={Registro}/>
+
+        <Route path="/detalleS/:id" component={DetalleS}/>
+        <Route path="/DetalleP/:id" component={DetalleP}/>
         
 
       </Switch>
