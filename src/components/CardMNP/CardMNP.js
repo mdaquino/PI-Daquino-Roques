@@ -11,14 +11,10 @@ class CardNMP extends Component{
   render(){
     return(
       <article className="single-card-playing">
-                <img src="https://image.tmdb.org/t/p/w500/A06yXys3hrCWu8xiNoHCFLTG5SH.jpg" className="card-img-top"
-                    alt="..."/>
+                <img src={this.props.foto} className="card-img-top" alt=" "/>
                 <div className="cardBody">
-                    <h5 className="card-title">I Know What You Did Last Summer</h5>
-                    <p className="card-text">When five friends inadvertently cause a deadly car accident, they cover up
-                        their involvement and make a pact to keep it a secret rather than face the consequences. A year
-                        later, their past comes back to haunt them and they're forced to confront a horrifying truth:
-                        someone knows what they did last summer…and is hell-bent on revenge.</p>
+                    <h5 className="card-title">{this.props.nombre}</h5>
+                    <p className="card-text">{this.props.desc}</p>
                     <a href="movie.html" className="btn btn-primary">Ver más</a>
                     <a href="" className="btn alert-primary">♥️</a>
                 </div>
