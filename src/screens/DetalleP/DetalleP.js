@@ -22,18 +22,18 @@ class DetalleP extends Component {
             <>
                 {this.state.personaje ? (
                     <>
-                        <h2 class="alert alert-warning">{this.state.personaje.original_title}</h2>
-                        <section class="row">
-                            <section class="col-md-6 info">
+                        <h2 className="alert alert-warning">{this.state.personaje.original_title}</h2>
+                        <section className="row">
+                            <section className="col-md-6 info">
                                 <h3>Descripción</h3>
-                                <p class="description">{this.state.personaje.overview}</p>
-                                <p class="mt-0 mb-0" id="release-date"><strong>Genero:</strong>{this.state.personaje.genres[0].name}</p>
-                                <p class="mt-0 mb-0" id="release-date"><strong>Rating:</strong>{this.state.personaje.vote_average}</p>
-                                <p class="mt-0 mb-0" id="release-date"><strong>Fecha de estreno:</strong>{this.state.personaje.release_date}</p>
-                                <p class="mt-0 mb-0" id="episodes"><strong>Duracion:</strong>{this.state.personaje.runtime}</p>
+                                <p className="description">{this.state.personaje.overview}</p>
+                                <p className="mt-0 mb-0" id="release-date"><strong>Genero:</strong>{this.state.personaje.genres[0].name}</p>
+                                <p className="mt-0 mb-0" id="release-date"><strong>Rating:</strong>{this.state.personaje.vote_average}</p>
+                                <p className="mt-0 mb-0" id="release-date"><strong>Fecha de estreno:</strong>{this.state.personaje.release_date}</p>
+                                <p className="mt-0 mb-0" id="episodes"><strong>Duracion:</strong>{this.state.personaje.runtime}</p>
                                 <button className="btn alert-primary">Favoritos</button>
                             </section>
-                            <img class="col-md-6" src={"https://image.tmdb.org/t/p/w342" + this.state.personaje.poster_path} alt=""/>
+                            <img className="col-md-6" src={"https://image.tmdb.org/t/p/w342" + this.state.personaje.poster_path} alt=""/>
                         </section>
                     </>
                 ) : (

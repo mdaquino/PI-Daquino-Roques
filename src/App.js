@@ -8,6 +8,7 @@ import Series from './screens/Series/Series'
 import Registro from './screens/Registro/Registro';
 import DetalleS from './screens/DetalleS/DetalleS';
 import DetalleP from './screens/DetalleP/DetalleP';
+import SearchResults from './screens/SearchResults/SearchResults';
 function App() {
   return (
     <div className='Container'>
@@ -25,7 +26,7 @@ function App() {
 
         <Route path="/detalleS/:id" component={DetalleS}/>
         <Route path="/DetalleP/:id" component={DetalleP}/>
-        
+        <Route path="/SearchResults/:nombre" component={SearchResults}/>
 
       </Switch>
       <footer className="alert alert-primary mt-4 text-center">

@@ -1,0 +1,54 @@
+import { Component } from "react";
+import Buscador from "../../components/Buscador/Buscador";
+import CardMovie from "../../components/CardMovie/CardMovie"
+
+
+class SearchResults extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            personajes: [],
+        }
+    }
+
+
+    componentDidMount() {
+        const nombre = this.props.match.params.nombre
+        fetch(`https://api.themoviedb.org/3/search/movie?query=${nombre}&api_key=bb857f4016bcff3ee72ee89cb409417f`)
+            .then(respone => respone.json())
+            .then(data => this.setState({ personajes: data.results }))
+            .catch(error => console.log(error))
+    }
+
+
+
+
+    render() {
+        console.log(this.state);
+        console.log(this.props);
+       
+        return (
+            <>
+            <Buscador/>
+            <section className="row cards" id="movies">
+                {
+                    this.state.personajes.length > 0 ? (
+                        this.state.personajes.map((personaje) => (
+                            <CardMovie
+                                nombre={personaje.title}
+                                foto={"https://image.tmdb.org/t/p/w342" + personaje.poster_path}
+                                desc={personaje.overview}
+                            />
+                        ))
+                    ) : (
+                        <p>Cargando... </p>
+                    )
+                }
+            </section>
+            </>
+        )
+    }
+}
+
+
+export default SearchResults;
