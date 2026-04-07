@@ -4,7 +4,7 @@ import SeriesC from "../../components/SeriesC/SeriesC";
 function Series() {
     return(
         <>
-        <Buscador/>
+        
         <SeriesC/>
          </>
       )

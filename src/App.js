@@ -9,10 +9,12 @@ import Registro from './screens/Registro/Registro';
 import DetalleS from './screens/DetalleS/DetalleS';
 import DetalleP from './screens/DetalleP/DetalleP';
 import SearchResults from './screens/SearchResults/SearchResults';
+import NotFound from './screens/NotFound/NotFound';
 function App() {
   return (
     <div className='Container'>
       <Header Home="Home" Peliculas="Peliculas" Series="Series" Favoritos="Favoritos" LogIn="Log In" Registro="Registro"/>
+      
       <Switch>
         
         <Route path="/" exact={true} component={Home}/>
@@ -26,7 +28,9 @@ function App() {
 
         <Route path="/detalleS/:id" component={DetalleS}/>
         <Route path="/DetalleP/:id" component={DetalleP}/>
-        <Route path="/SearchResults/:nombre" component={SearchResults}/>
+        <Route path="/SearchResults/:tipo/:nombre" component={SearchResults}/>
+
+         <Route path="*" component={NotFound}/>
 
       </Switch>
       <footer className="alert alert-primary mt-4 text-center">

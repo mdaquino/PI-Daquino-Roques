@@ -3,7 +3,7 @@ import Buscador from "../../components/Buscador/Buscador";
 function Favoritos() {
     return(
         <div> 
-            <Buscador/>
+            <p></p>
         </div>
       )
 }

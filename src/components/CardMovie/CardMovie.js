@@ -4,7 +4,22 @@ class CardMovie extends Component{
     constructor(props){
         super(props)
         this.state={
-          data:""
+          data:"",
+          clase: "Oculto",
+          textoBoton: "Ver menos"
+        }
+    }
+    ocultar(){
+        if (this.state.clase === "oculto") {
+            this.setState({
+                clase: "",
+                textoBoton: "Ver menos"
+            })
+        } else {
+            this.setState({
+                clase: "oculto",
+                textoBoton:"Ver mas"
+            })
         }
     }
 
@@ -15,8 +30,16 @@ class CardMovie extends Component{
                     alt="..."/>
                 <div className="cardBody">
                     <h5 className="card-title">{this.props.nombre}</h5>
-                    <p className="card-text">{this.props.desc}</p>
-                    <Link to={"/detalleP/" + this.props.id}><button href="movie.html" className="btn btn-primary">Ver más</button></Link>
+                    
+                    <section className={this.state.clase}>
+  
+                      <p className="card-text">{this.props.desc}</p>
+                    </section> 
+                    <button className='more' onClick={()=>this.ocultar()}>
+                      {this.state.textoBoton}
+                    </button>
+                   
+                    <Link to={"/detalleP/" + this.props.id}><button href="movie.html" className="btn btn-primary">Ver detalle</button></Link>
                     <a href="" className="btn alert-primary">🩶</a>
                 </div>
             </article>

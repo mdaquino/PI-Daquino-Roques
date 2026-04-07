@@ -4,7 +4,7 @@ import Movies from "../../components/Movies/Movies";
 function Peliculas() {
     return(
         <> 
-            <Buscador/>
+            
             <Movies/>
         </>
       )
