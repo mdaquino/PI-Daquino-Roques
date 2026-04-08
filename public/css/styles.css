@@ -94,6 +94,9 @@ nav {
 #p{
     margin: 20px;
 }
+.seccionFavoritos{
+    display: flex;
+}
 
 @media(min-width: 765px){
     nav {

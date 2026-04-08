@@ -6,7 +6,8 @@ class CardNMP extends Component {
     this.state = {
       data: "",
       clase: "Oculto",
-      textoBoton: "Ver menos"
+      textoBoton: "Ver menos",
+      favorito: false
     }
   }
   ocultar() {
@@ -19,6 +20,47 @@ class CardNMP extends Component {
       this.setState({
         clase: "oculto",
         textoBoton: "Ver mas"
+      })
+    }
+  }
+  agregarFavP() {
+    let idFav = this.props.id
+    let storage = localStorage.getItem("favoritosP")
+    if (storage != null) {
+      let storageParse = JSON.parse(storage)
+      storageParse.push(idFav)
+      let storageString = JSON.stringify(storageParse)
+      localStorage.setItem("favoritosP", storageString)
+      this.setState({ favorito: true })
+    } else {
+      let arrayIDs = []
+      arrayIDs.push(idFav)
+      let arrayString = JSON.stringify(arrayIDs)
+      localStorage.setItem("favoritosP", arrayString)
+      this.setState({ favorito: true })
+    }
+
+  }
+
+  sacarFavP() {
+    let idFav = this.props.id
+    let storage = localStorage.getItem("favoritosP")
+    if (storage !== null) {
+      let storageParseado = JSON.parse(storage)
+      let storageFiltrado = storageParseado.filter(id => id !== idFav)
+      let storageString = JSON.stringify(storageFiltrado)
+      localStorage.setItem("favoritosP", storageString)
+      this.setState({ favorito: false })
+    }
+  }
+  componentDidMount() {
+    let storage = localStorage.getItem("favoritosP")
+    if (storage !== null) {
+      let storageParseado = JSON.parse(storage)
+      let estaEnFav = storageParseado.includes(Number(this.props.id))
+
+      this.setState({
+        favorito: estaEnFav
       })
     }
   }
@@ -37,8 +79,9 @@ class CardNMP extends Component {
             {this.state.textoBoton}
           </button>
 
-          <Link to={"/detalleP/" + this.props.id}><button href="movie.html" className="btn btn-primary">Ver detalle</button></Link>
-          <a href="" className="btn alert-primary">🩶</a>
+          <Link to={"/detalleP/" + this.props.id}><button className="btn btn-primary">Ver detalle</button></Link>
+          <button className={this.state.favorito === true ? "btn alert-primary oculto" : "btn alert-primary"} onClick={() => this.agregarFavP()}>Agregar a Favoritos</button>
+          <button className={this.state.favorito === false ? "btn alert-primary oculto" : "btn alert-primary"} onClick={() => this.sacarFavP()}>Quitar de Favoritos</button>
         </div>
       </article>
     )
