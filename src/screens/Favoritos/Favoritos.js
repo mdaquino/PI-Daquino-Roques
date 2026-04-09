@@ -104,11 +104,11 @@ class Favoritos extends Component {
                         this.state.favoritosS.map((personaje) =>
 
                             <CardSerie
-                                    id = {personaje.id}
-                                    nombre={personaje.original_name}
-                                    imagen={"https://image.tmdb.org/t/p/w342" + personaje.poster_path}
-                                    desc={personaje.overview}
-                                />
+                                id={personaje.id}
+                                nombre={personaje.original_name}
+                                imagen={"https://image.tmdb.org/t/p/w342" + personaje.poster_path}
+                                desc={personaje.overview}
+                            />
 
                         )
 

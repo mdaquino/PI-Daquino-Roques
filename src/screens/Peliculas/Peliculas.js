@@ -1,12 +1,12 @@
-import reactRouterDom from "react-router-dom";
+import React from "react";
 import Buscador from "../../components/Buscador/Buscador";
-import Movies from "../../components/Movies/Movies";
+import PeliculasScreen from"../../components/PeliculasScreen/PeliculasScreen"
 function Peliculas() {
     return(
-        <> 
-            
-            <Movies/>
-        </>
+        <>
+        
+        <PeliculasScreen/>
+         </>
       )
 }
 export default Peliculas

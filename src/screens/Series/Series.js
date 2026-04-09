@@ -1,11 +1,11 @@
 import React from "react";
 import Buscador from "../../components/Buscador/Buscador";
-import SeriesC from "../../components/SeriesC/SeriesC";
+import SeriesScreen from "../../components/SeriesScreen/SeriesScreen";
 function Series() {
     return(
         <>
         
-        <SeriesC/>
+        <SeriesScreen/>
          </>
       )
 }
