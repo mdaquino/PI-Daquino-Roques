@@ -10,6 +10,7 @@ import DetalleS from './screens/DetalleS/DetalleS';
 import DetalleP from './screens/DetalleP/DetalleP';
 import SearchResults from './screens/SearchResults/SearchResults';
 import NotFound from './screens/NotFound/NotFound';
+import FormRegister from './components/FormRegister/FormRegister';
 function App() {
   return (
     <div className='Container'>
@@ -29,8 +30,9 @@ function App() {
         <Route path="/detalleS/:id" component={DetalleS}/>
         <Route path="/DetalleP/:id" component={DetalleP}/>
         <Route path="/SearchResults/:tipo/:nombre" component={SearchResults}/>
+        <Route path="/FormRegister" component={FormRegister}/>
 
-         <Route path="*" component={NotFound}/>
+        <Route path="*" component={NotFound}/>
 
       </Switch>
       <footer className="alert alert-primary mt-4 text-center">

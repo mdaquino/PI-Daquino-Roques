@@ -42,7 +42,7 @@ class Movies extends Component {
                 <section className="row cards" id="movies">
                     {
                         this.state.popular.length > 0 ? (
-                            this.state.popular.map((personaje) => (
+                            this.state.popular.slice(0,4).map((personaje) => (
                                 <CardMovie 
                                    id = {personaje.id}
                                    nombre={personaje.title}
@@ -59,7 +59,7 @@ class Movies extends Component {
                 <section className="row cards" id="now-playing">
                     {
                         this.state.nowPlaying.length > 0 ? (
-                            this.state.nowPlaying.map((personaje) => (
+                            this.state.nowPlaying.slice(0,6).map((personaje) => (
                                 <CardNMP
                                     id = {personaje.id}
                                     nombre={personaje.title}

@@ -38,7 +38,7 @@ class SeriesC extends Component {
                 <section className="row cards" id="tv-show">
                     {
                         this.state.popular.length > 0 ? (
-                            this.state.popular.map((personaje) =>
+                            this.state.popular.slice(0,5).map((personaje) =>
                                 <CardSerie
                                     id = {personaje.id}
                                     nombre={personaje.original_name}
@@ -55,7 +55,7 @@ class SeriesC extends Component {
                 <section className="row cards" id="on-air-today">
                     {
                         this.state.airing.length > 0 ? (
-                            this.state.airing.map((personaje) =>
+                            this.state.airing.slice(0,6).map((personaje) =>
                                 <CardSAT
                                     id = {personaje.id}
                                     nombre={personaje.original_name}
