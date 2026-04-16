@@ -73,7 +73,7 @@ class Favoritos extends Component {
         return (
             <div>
                 <h2>Peliculas Favoritas</h2>
-                <section className="seccionFavoritos">
+                <section className="row cards" id="movies">
                     {this.state.cargando === true ? (
                         <p>Cargando...</p>
                     ) : this.state.favoritosP.length === 0 ? (
@@ -94,7 +94,7 @@ class Favoritos extends Component {
                     )}
                 </section>
                 <h2>Series Favoritas</h2>
-                <section className="seccionFavoritos">
+                <section className="row cards" id="movies">
                     {this.state.cargando === true ? (
                         <p>Cargando...</p>
                     ) : this.state.favoritosS.length === 0 ? (

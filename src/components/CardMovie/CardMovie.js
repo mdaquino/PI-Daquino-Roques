@@ -1,6 +1,10 @@
 import React, { Component } from "react"
 import { Link } from "react-router-dom/cjs/react-router-dom.min"
+import Cookies from "universal-cookie"
+
+const cookies = new Cookies()
 class CardMovie extends Component {
+
     constructor(props) {
         super(props)
         this.state = {
@@ -69,6 +73,7 @@ class CardMovie extends Component {
 
 
     render() {
+        const cookie = cookies.get("auth-user")
         return (
             <article className="single-card-movie">
                 <img src={this.props.foto} className="card-img-top"
@@ -85,8 +90,15 @@ class CardMovie extends Component {
                     </button>
 
                     <Link to={"/detalleP/" + this.props.id}><button className="btn btn-primary">Ver detalle</button></Link>
-                    <button className={this.state.favorito === true ? "btn alert-primary oculto" : "btn alert-primary"} onClick={() => this.agregarFavP()}>Agregar a Favoritos</button>
-                    <button className={this.state.favorito === false ? "btn alert-primary oculto" : "btn alert-primary"} onClick={() => this.sacarFavP()}>Quitar de Favoritos</button>
+                    {cookie ? (
+                        <>
+                            <button className={this.state.favorito === true ? "btn alert-primary oculto" : "btn alert-primary"} onClick={() => this.agregarFavP()}>Agregar a Favoritos</button>
+                            <button className={this.state.favorito === false ? "btn alert-primary oculto" : "btn alert-primary"} onClick={() => this.sacarFavP()}>Quitar de Favoritos</button>
+                        </>
+                    ) : (
+                        <p></p>
+                    )
+                    }
                 </div>
             </article>
         )

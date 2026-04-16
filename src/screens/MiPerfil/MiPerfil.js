@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom/cjs/react-router-dom.min";
 import Cookies from 'universal-cookie';
 
 const cookies = new Cookies();
@@ -25,4 +26,4 @@ class MiPerfil extends Component {
     }
 }
 
-export default MiPerfil;
+export default withRouter(MiPerfil);
