@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom';
-function Header(props){
-    return (
+import Cookies from 'universal-cookie';
+import React, { Component } from 'react';
+
+const cookies= new Cookies()
+class Header extends Component{
+    render(){
+        const cookie= cookies.get("auth-user")
+        return (
+        
         <><h1>UdeSA Movies</h1>
         <nav>
              <ul class="nav nav-tabs my-4">
@@ -16,16 +23,26 @@ function Header(props){
                 <li class="nav-item">
                     <Link to="/Favoritos" class="nav-link"> Favoritos</Link>
                 </li>
+                {!cookie?(
+                    <>
                 <li class="nav-item ml-auto">
                     <Link to="/LogIn" class="nav-link"> LogIn</Link>
                 </li>
                 <li class="nav-item">
                     <Link to="/Registro" class="nav-link"> Registro</Link>
                 </li>
+                </>
+                ):(
+                    
+                  <li class="nav-item ml-auto">
+                    <Link to="/MiPerfil" class="nav-link"> Log out</Link>
+                </li>
+                
+                )}
             </ul>
            
         </nav>
         </>
     )
-}
+}}
 export default Header

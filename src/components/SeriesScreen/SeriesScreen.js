@@ -32,7 +32,7 @@ class SeriesScreen extends Component {
     }
     
     cargarMas() {
-        fetch(`https://api.themoviedb.org/3/movie/popular?page=${this.state.paginaDos}&api_key=bb857f4016bcff3ee72ee89cb409417f`)
+        fetch(`https://api.themoviedb.org/3/tv/popular?page=${this.state.paginaDos}&api_key=bb857f4016bcff3ee72ee89cb409417f`)
             .then(response => response.json())
             .then(data => this.setState(
                 {
@@ -61,7 +61,7 @@ class SeriesScreen extends Component {
                         <input type="text" onChange={(evento)=>this.cambioDelInput(evento)} value={this.state.valor}></input>
                         <input type="submit" value="submit"></input>
                 </form>
-                <h2 className="alert alert-primary">Peliculas</h2>
+                <h2 className="alert alert-primary">Series</h2>
                 <section className="row cards" id="now-playing">
                     {
                         this.state.personajes.length > 0 ? (
@@ -78,7 +78,7 @@ class SeriesScreen extends Component {
 
                     }
                     </section>
-                    <button onClick={() => this.cargarMas()}>Mas personajes</button>
+                    <button onClick={() => this.cargarMas()}>Mas series</button>
                 </>
 
                 

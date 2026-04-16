@@ -11,6 +11,7 @@ import DetalleP from './screens/DetalleP/DetalleP';
 import SearchResults from './screens/SearchResults/SearchResults';
 import NotFound from './screens/NotFound/NotFound';
 import FormRegister from './components/FormRegister/FormRegister';
+import MiPerfil from './screens/MiPerfil/MiPerfil';
 function App() {
   return (
     <div className='Container'>
@@ -24,6 +25,7 @@ function App() {
         <Route path="/Series" component={Series}/>
         <Route path="/Favoritos" component={Favoritos}/>
         
+        <Route path="/MiPerfil" component={MiPerfil}/>
         <Route path="/LogIn" component={LogIn}/>
         <Route path="/Registro" component={Registro}/>
 
