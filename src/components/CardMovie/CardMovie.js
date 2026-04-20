@@ -89,7 +89,7 @@ class CardMovie extends Component {
                         {this.state.textoBoton}
                     </button>
 
-                    <Link to={"/detalleP/" + this.props.id}><button className="btn btn-primary">Ver detalle</button></Link>
+                    <Link to={this.props.tipo === "tv" ? "/detalleS/" + this.props.id : "/detalleP/" + this.props.id}><button className="btn btn-primary">Ver detalle</button></Link>
                     {cookie ? (
                         <>
                             <button className={this.state.favorito === true ? "btn alert-primary oculto" : "btn alert-primary"} onClick={() => this.agregarFavP()}>Agregar a Favoritos</button>

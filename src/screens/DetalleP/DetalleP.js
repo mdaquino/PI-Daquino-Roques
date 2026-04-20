@@ -30,7 +30,7 @@ class DetalleP extends Component {
                                 <p className="mt-0 mb-0" id="release-date"><strong>Genero:</strong>{this.state.personaje.genres[0].name}</p>
                                 <p className="mt-0 mb-0" id="release-date"><strong>Rating:</strong>{this.state.personaje.vote_average}</p>
                                 <p className="mt-0 mb-0" id="release-date"><strong>Fecha de estreno:</strong>{this.state.personaje.release_date}</p>
-                                <p className="mt-0 mb-0" id="episodes"><strong>Duracion:</strong>{this.state.personaje.runtime}</p>
+                                <p className="mt-0 mb-0" id="episodes"><strong>Duracion:</strong>{this.state.personaje.runtime} mins</p>
                                 <button className="btn alert-primary">Favoritos</button>
                             </section>
                             <img className="col-md-6" src={"https://image.tmdb.org/t/p/w342" + this.state.personaje.poster_path} alt=""/>

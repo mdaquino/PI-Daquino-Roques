@@ -83,7 +83,7 @@ class CardNMP extends Component {
             {this.state.textoBoton}
           </button>
 
-          <Link to={"/detalleP/" + this.props.id}><button className="btn btn-primary">Ver detalle</button></Link>
+          <Link to={this.props.tipo === "tv" ? "/detalleP/" + this.props.id : "/detalleS/" + this.props.id}><button className="btn btn-primary">Ver detalle</button></Link>
 
           {cookie ? (
             <>

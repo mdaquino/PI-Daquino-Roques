@@ -1,6 +1,7 @@
 import CardMovie from "../CardMovie/CardMovie"
 import CardNMP from "../CardMNP/CardMNP"
 import { Component } from "react"
+import { Link } from "react-router-dom/cjs/react-router-dom.min"
 class Movies extends Component {
     constructor(props) {
         super(props)
@@ -54,6 +55,7 @@ class Movies extends Component {
                             <p>Cargando..</p>
                         )
                     } 
+                <Link to="/Peliculas" className="btn btn-primary">Ver todas</Link>
                 </section>
                 <h2 className="alert alert-primary">Movies now playing</h2>
                 <section className="row cards" id="now-playing">
@@ -72,7 +74,9 @@ class Movies extends Component {
                         )
 
                     }
+                
                 </section>
+                <Link to="/Peliculas" className="btn btn-primary">Ver todas</Link>
             </>
 
         )

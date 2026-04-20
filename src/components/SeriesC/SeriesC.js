@@ -1,6 +1,7 @@
 import CardSerie from "../CardSeries/CardSeries"
 import CardSAT from "../CardSAT/CardSAT"
 import { Component } from "react"
+import { Link } from "react-router-dom/cjs/react-router-dom.min"
 class SeriesC extends Component {
     constructor(props) {
         super(props)
@@ -50,6 +51,7 @@ class SeriesC extends Component {
 
 
                     }
+                <Link to="/Series" className="btn btn-primary">Ver todas</Link>
                 </section>
                 <h2 className="alert alert-warning">TV shows airing today</h2>
                 <section className="row cards" id="on-air-today">
@@ -68,6 +70,7 @@ class SeriesC extends Component {
 
                     }
                 </section>
+                <Link to="/Series" className="btn btn-primary">Ver todas</Link>
             </>
 
         )
