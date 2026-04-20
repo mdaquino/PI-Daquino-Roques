@@ -10,33 +10,33 @@ class Header extends Component {
 
             <><h1>UdeSA Movies</h1>
                 <nav>
-                    <ul class="nav nav-tabs my-4">
-                        <li class="nav-item">
-                            <Link to="/" class="nav-link"> Home</Link>
+                    <ul className="nav nav-tabs my-4">
+                        <li className="nav-item">
+                            <Link to="/" className="nav-link"> Home</Link>
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                             <Link to="/Peliculas" class="nav-link"> Peliculas</Link>
                         </li>
-                        <li class="nav-item">
-                            <Link to="/Series" class="nav-link"> Series</Link>
+                        <li className="nav-item">
+                            <Link to="/Series" className="nav-link"> Series</Link>
                         </li>
 
                         {cookie == null ? (
                             <>
-                                <li class="nav-item ml-auto">
-                                    <Link to="/LogIn" class="nav-link"> LogIn</Link>
+                                <li className="nav-item ml-auto">
+                                    <Link to="/LogIn" className="nav-link"> LogIn</Link>
                                 </li>
-                                <li class="nav-item">
-                                    <Link to="/Registro" class="nav-link"> Registro</Link>
+                                <li className="nav-item">
+                                    <Link to="/Registro" className="nav-link"> Registro</Link>
                                 </li>
                             </>
                         ) : (
                             <>
-                                <li class="nav-item">
-                                    <Link to="/Favoritos" class="nav-link"> Favoritos</Link>
+                                <li className="nav-item">
+                                    <Link to="/Favoritos" className="nav-link"> Favoritos</Link>
                                 </li>
                                 <li class="nav-item ml-auto">
-                                    <Link to="/MiPerfil" class="nav-link"> Log out</Link>
+                                    <Link to="/MiPerfil" className="nav-link"> Log out</Link>
                                 </li>
                             </>
                         )}

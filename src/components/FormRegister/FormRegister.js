@@ -80,24 +80,24 @@ class FormRegister extends Component {
 
     render() {
         return (
-            <div class="row justify-content-center">
-                <div class="col-md-6">
+            <div className="row justify-content-center">
+                <div className="col-md-6">
                     <form onSubmit={(evento) => this.evitarEnvio(evento)}>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label for="username">Nombre de usuario</label>
                             <input onChange={(evento) => this.cambioInput(evento)} type="text" className="form-control" id="username" placeholder="Ingresá tu nombre de usuario" />
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label for="email">Email</label>
                             <input onChange={(evento) => this.cambioInput(evento)} type="email" className="form-control" id="email" placeholder="Ingresá tu email" />
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label for="password">Contraseña</label>
                             <input onChange={(evento) => this.cambioInput(evento)} type="password" className="form-control" id="password" placeholder="Ingresá tu contraseña" />
                         </div>
                         <button type="submit" className="btn btn-primary btn-block">Registrarse</button>
                     </form>
-                    <p class="mt-3 text-center">¿Ya tenés cuenta? <Link to="/LogIn">Iniciar sesión</Link></p>
+                    <p className="mt-3 text-center">¿Ya tenés cuenta? <Link to="/LogIn">Iniciar sesión</Link></p>
                 </div>
             </div>
         )

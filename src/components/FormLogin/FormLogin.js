@@ -70,22 +70,22 @@ class FormLogin extends Component {
     render() {
         return (
             <>
-            <h2 class="alert alert-primary">Iniciar sesión</h2>
+            <h2 className="alert alert-primary">Iniciar sesión</h2>
 
-            <div class="row justify-content-center">
-                <div class="col-md-6">
+            <div className="row justify-content-center">
+                <div className="col-md-6">
                     <form onSubmit={(e) => this.iniciarSesion(e)}> 
-                        <div class="form-group">
+                        <div className="form-group">
                          <label for="email">Email</label>
                          <input onChange={(evento) => this.cambioInput(evento)} type="email" className="form-control" id="email" placeholder="Ingresá tu email"/>
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <label for="password">Contraseña</label>
                             <input onChange={(evento) => this.cambioInput(evento)} type="password" className="form-control" id="password" placeholder="Ingresá tu contraseña"/>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
+                        <button type="submit" className="btn btn-primary btn-block">Iniciar sesión</button>
                     </form>
-                    <p class="mt-3 text-center">¿No tenés cuenta? <Link to="/Registro">Registrarse</Link></p>
+                    <p className="mt-3 text-center">¿No tenés cuenta? <Link to="/Registro">Registrarse</Link></p>
                 </div>
             </div>
          </>
