@@ -103,3 +103,69 @@ nav {
         grid-template-columns: 1fr;
     }
 }
+
+
+@media (max-width: 768px) {
+    
+    nav {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+    
+    .nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .nav a {
+        display: block;
+        padding: 8px 0;
+        text-align: center;
+    }
+    
+    
+    .search-form,
+    .filter-form {
+        grid-template-columns: 1fr;
+        padding: 10px;
+       
+    }
+    
+    .search-form input,
+    .filter-form input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .search-form .btn-sm,
+    .filter-form .btn-sm {
+        width: 100%;
+    }
+    
+    .cards {
+        flex-direction: column;
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .single-card-people,
+    .single-card-movie,
+    .single-card-playing,
+    .single-card-tv,
+    .single-card-on-air,
+    .all-movies .single-card-movie {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    
+    
+    .seccionFavoritos {
+        flex-direction: column;
+    }
+    
+
+    .cardBody {
+        margin-top: 10px;
+    }
+}
