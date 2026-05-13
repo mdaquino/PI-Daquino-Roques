@@ -1,85 +1,71 @@
 import CardMovie from "../CardMovie/CardMovie"
 import CardNMP from "../CardMNP/CardMNP"
-import { Component } from "react"
 import { Link } from "react-router-dom/cjs/react-router-dom.min"
-class Movies extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            nowPlaying: [],
-            popular: []
-        }
-    }
+import { useEffect, useState } from "react"
+function Movies(props) {
+
+    const [nowPlaying, setNowPlaying] = useState([])
+    const [popular, setPopular] = useState([])
 
 
 
-    componentDidMount() {
+    useEffect(() => { 
         fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=bb857f4016bcff3ee72ee89cb409417f")
             .then(response => response.json())
-            .then(data => {
-                this.setState({
-                    nowPlaying: data.results
-                })
-            })
+            .then(data => setNowPlaying(data.results))
             .catch(error => console.log(error))
+    }, [])
 
+    useEffect(() => { 
         fetch("https://api.themoviedb.org/3/movie/popular?api_key=bb857f4016bcff3ee72ee89cb409417f")
             .then(response => response.json())
-            .then(data => {
-                this.setState({
-                    popular: data.results
-                })
-            })
+            .then(data => setPopular(data.results))
             .catch(error => console.log(error))
-    }
+    }, [])
 
-
-
-    render() {
-        console.log(this.state);
-        return (
-            <>
-                <h2 className="alert alert-primary">Popular movies this week</h2>
-                <section className="row cards" id="movies">
-                    {
-                        this.state.popular.length > 0 ? (
-                            this.state.popular.slice(0,4).map((personaje) => (
-                                <CardMovie 
-                                   id = {personaje.id}
-                                   nombre={personaje.title}
-                                    foto={"https://image.tmdb.org/t/p/w342" + personaje.poster_path}
-                                    desc={personaje.overview}
-                                />
-                            ))
-                        ) : (
-                            <p>Cargando..</p>
-                        )
-                    } 
+   return (
+        <>
+            <h2 className="alert alert-primary">Popular movies this week</h2>
+            <section className="row cards" id="movies">
+                {
+                    popular.length > 0 ? (
+                        popular.slice(0, 4).map((personaje) => (
+                            <CardMovie
+                                id={personaje.id}
+                                nombre={personaje.title}
+                                foto={"https://image.tmdb.org/t/p/w342" + personaje.poster_path}
+                                desc={personaje.overview}
+                            />
+                        ))
+                    ) : (
+                        <p>Cargando..</p>
+                    )
+                }
                 <Link to="/Peliculas" className="btn btn-primary">Ver todas</Link>
-                </section>
-                <h2 className="alert alert-primary">Movies now playing</h2>
-                <section className="row cards" id="now-playing">
-                    {
-                        this.state.nowPlaying.length > 0 ? (
-                            this.state.nowPlaying.slice(0,6).map((personaje) => (
-                                <CardNMP
-                                    id = {personaje.id}
-                                    nombre={personaje.title}
-                                    foto={"https://image.tmdb.org/t/p/w342" + personaje.poster_path}
-                                    desc={personaje.overview}
-                                />
-                            ))
-                        ) : (
-                            <p>Cargando... </p>
-                        )
+            </section>
+            <h2 className="alert alert-primary">Movies now playing</h2>
+            <section className="row cards" id="now-playing">
+                {
+                    nowPlaying.length > 0 ? (
+                        nowPlaying.slice(0, 6).map((personaje) => (
+                            <CardNMP
+                                id={personaje.id}
+                                nombre={personaje.title}
+                                foto={"https://image.tmdb.org/t/p/w342" + personaje.poster_path}
+                                desc={personaje.overview}
+                            />
+                        ))
+                    ) : (
+                        <p>Cargando... </p>
+                    )
 
-                    }
-                
-                </section>
-                <Link to="/Peliculas" className="btn btn-primary">Ver todas</Link>
-            </>
+                }
 
-        )
-    }
+            </section>
+            <Link to="/Peliculas" className="btn btn-primary">Ver todas</Link>
+        </>
+
+    )
 }
+
 export default Movies
