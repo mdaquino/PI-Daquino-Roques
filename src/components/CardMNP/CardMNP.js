@@ -39,7 +39,7 @@ function CardNMP(props) {
   }
 
   function sacarFavP() {
-    let idFav = this.props.id
+    let idFav = props.id
     let storage = localStorage.getItem("favoritosP")
     if (storage !== null) {
       let storageParseado = JSON.parse(storage)
@@ -53,7 +53,7 @@ function CardNMP(props) {
     let storage = localStorage.getItem("favoritosP")
     if (storage !== null) {
       let storageParseado = JSON.parse(storage)
-      let estaEnFav = storageParseado.includes(Number(this.props.id))
+      let estaEnFav = storageParseado.includes(Number(props.id))
       setFavorito(estaEnFav)
     }
   }, false)
@@ -62,18 +62,18 @@ function CardNMP(props) {
   const cookie = cookies.get("auth-user")
   return (
     <article className="single-card-playing">
-      <img src={this.props.foto} className="card-img-top" alt=" " />
+      <img src={props.foto} className="card-img-top" alt=" " />
       <div className="cardBody">
-        <h5 className="card-title">{this.props.nombre}</h5>
+        <h5 className="card-title">{props.nombre}</h5>
         <section className={clase}>
 
-          <p className="card-text">{this.props.desc}</p>
+          <p className="card-text">{props.desc}</p>
         </section>
         <button className='more' onClick={() => this.ocultar()}>
           {textoBoton}
         </button>
 
-        <Link to={this.props.tipo === "tv" ? "/detalleS/" + this.props.id : "/detalleP/" + this.props.id}><button className="btn btn-primary">Ver detalle</button></Link>
+        <Link to={props.tipo === "tv" ? "/detalleS/" + props.id : "/detalleP/" + props.id}><button className="btn btn-primary">Ver detalle</button></Link>
 
         {cookie ? (
           <>

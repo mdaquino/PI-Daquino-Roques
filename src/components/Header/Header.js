@@ -3,8 +3,8 @@ import Cookies from 'universal-cookie';
 import React, { Component } from 'react';
 
 const cookies = new Cookies()
-class Header extends Component {
-    render() {
+function Header(){
+    
         const cookie = cookies.get("auth-user")
         return (
 
@@ -46,5 +46,5 @@ class Header extends Component {
             </>
         )
     }
-}
+
 export default withRouter(Header)

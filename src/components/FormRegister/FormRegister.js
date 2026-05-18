@@ -1,34 +1,30 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom/cjs/react-router-dom.min";
+import { useEffect, useState } from "react"
 
+function FormRegister (props){
+   
+    const [username, setUsername]= useState("")
+    const [email, setEmail]= useState("")
+    const [contrasena, setContrasena]= useState("")
+    const [error, setError]= useState("")
 
-class FormRegister extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            username: "",
-            email: "",
-            contrasena: "",
-            error: ""
-        }
-    }
-
-    evitarEnvio(evento) {
+    function evitarEnvio(evento) {
         evento.preventDefault()
 
-        let usuarioACrear = { username: this.state.username, email: this.state.email, contrasena: this.state.contrasena }
+        let usuarioACrear = { username: username, email: email, contrasena: contrasena }
 
-        if (this.state.username.length <= 3 || this.state.username.length > 7) {
+        if (username.length <= 3 || username.length > 7) {
             alert("El nombre de usuario debe tener entre 3 y 7 caracteres");
             return
         }
 
-        if (!this.state.email.includes("@")) {
+        if (!email.includes("@")) {
             alert("El campo de email debe incluir @")
             return
         }
 
-        if (this.state.contrasena.length <= 5 || this.state.contrasena.length >= 12) {
+        if (contrasena.length <= 5 || contrasena.length >= 12) {
             alert("La contreseña debe tener entre 5 y 12 caracteres")
             return
         }
@@ -40,7 +36,7 @@ class FormRegister extends Component {
 
         if (usersStorage !== null) {
             let usersParseado = JSON.parse(usersStorage)
-            let usersFiltardo = usersParseado.filter((usuario) => usuario.email == this.state.email)
+            let usersFiltardo = usersParseado.filter((usuario) => usuario.email == email)
             if (usersFiltardo.length == 1) {
                 alert("Ya existe un usuario con el email ingresado")
                 return
@@ -59,12 +55,12 @@ class FormRegister extends Component {
 
         }
 
-        this.props.history.push("/LogIn")
+        props.history.push("/LogIn")
 
 
     }
 
-    cambioInput(evento) {
+    function cambioInput(evento) {
         if (evento.target.id == 'password') {
             this.setState({ contrasena: evento.target.value })
         }
@@ -78,7 +74,7 @@ class FormRegister extends Component {
     }
 
 
-    render() {
+    
         return (
             <div className="row justify-content-center">
                 <div className="col-md-6">
@@ -102,6 +98,6 @@ class FormRegister extends Component {
             </div>
         )
     }
-}
+
 
 export default withRouter(FormRegister); 

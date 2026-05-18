@@ -1,24 +1,17 @@
 import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom/cjs/react-router-dom.min";
 import Cookies from 'universal-cookie';
+import { useEffect, useState } from "react"
 
 const cookies = new Cookies();
 
-class FormLogin extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            email: "",
-            password:"",
-
-
-           
-        }
-    }
-
-    iniciarSesion(e){
+function FormLogin (props){
+ 
+    const [email, setEmail]= useState("")
+     const [password, setPassword]= useState("")
+    function iniciarSesion(e){
         e.preventDefault()
-        let usuarioaVerificar= {email: this.state.email, password: this.state.password}
+        let usuarioaVerificar= {email: email, password: password}
         const userstorege= localStorage.getItem("users")
         if(userstorege=== null){
             alert("Las credenciales ingresadas son invalidas")
@@ -27,18 +20,18 @@ class FormLogin extends Component {
             let usersParseado= JSON.parse(userstorege)
             console.log(usersParseado);
             
-            let usersFiltrado= usersParseado.filter((usuario)=> usuario.email == this.state.email)
+            let usersFiltrado= usersParseado.filter((usuario)=> usuario.email == email)
             console.log(usersFiltrado);
             
             if(usersFiltrado.length === 0){
                 alert("El usuario ingresado no existe")
             } else{
                 
-                let usersFiltrado= usersParseado.filter((usuario)=> usuario.contrasena == this.state.password)
+                let usersFiltrado= usersParseado.filter((usuario)=> usuario.contrasena == password)
                 if(usersFiltrado.length=== 0){
                     alert("las credenciales ingresadas son inválidas")
                 }else{
-                    let emailUsu= this.state.email
+                    let emailUsu= email
                     let usuarioEnSesion= JSON.stringify({sesionActiva: true})
                     localStorage.setItem("sesion", usuarioEnSesion)
                     cookies.set('auth-user', emailUsu )
@@ -53,7 +46,7 @@ class FormLogin extends Component {
 
    
 
-    cambioInput(evento) {
+    function cambioInput(evento) {
         console.log("me activo");
         
         if (evento.target.id == 'password') {
@@ -67,7 +60,7 @@ class FormLogin extends Component {
     }
 
 
-    render() {
+
         return (
             <>
             <h2 className="alert alert-primary">Iniciar sesión</h2>
@@ -93,6 +86,6 @@ class FormLogin extends Component {
             
         )
     }
-}
+
 
 export default withRouter(FormLogin); 
